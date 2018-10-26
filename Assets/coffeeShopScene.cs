@@ -14,7 +14,7 @@ public class coffeeShopScene : MonoBehaviour {
 	void Update () {
         if (Input.GetKey(KeyCode.UpArrow))
         {
-            SceneManager.LoadScene("CoffeeHouse");
+            SceneManager.LoadScene("CoffeeHouseInterior");
         }
     }
 }
