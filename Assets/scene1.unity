@@ -1622,6 +1622,9 @@ Prefab:
 =======
   m_SourcePrefab: {fileID: 100100000, guid: 6843d2f01c8c5ea4ea5382c02e7af57c, type: 3}
   m_IsPrefabAsset: 0
+<<<<<<< HEAD
+>>>>>>> 3351f4556ec3023f4972b5f5a4ffb92a072f7216
+=======
 >>>>>>> 3351f4556ec3023f4972b5f5a4ffb92a072f7216
 --- !u!4 &375805948 stripped
 Transform:
@@ -4500,7 +4503,11 @@ Prefab:
     - target: {fileID: 400000, guid: 6d58037af810b4021ac921a71033e575, type: 3}
       propertyPath: m_RootOrder
 <<<<<<< HEAD
+<<<<<<< HEAD
       value: 145
+=======
+      value: 146
+>>>>>>> 3351f4556ec3023f4972b5f5a4ffb92a072f7216
 =======
       value: 146
 >>>>>>> 3351f4556ec3023f4972b5f5a4ffb92a072f7216
