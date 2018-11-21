@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43667555, g: 0.48427123, b: 0.5645229, a: 1}
+  m_IndirectSpecularColor: {r: 0.000017033923, g: 0.000000025772884, b: 0, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -122,8 +122,9 @@ GameObject:
   m_Component:
   - component: {fileID: 615223264}
   - component: {fileID: 615223263}
+  - component: {fileID: 615223265}
   m_Layer: 0
-  m_Name: Directional Light (1)
+  m_Name: sun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -178,6 +179,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: -90, y: -30, z: 0}
+--- !u!114 &615223265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 615223262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 621c0117666b61e4891ca527040f9618, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1205096442
 GameObject:
   m_ObjectHideFlags: 0
@@ -275,7 +287,7 @@ GameObject:
   - component: {fileID: 1402853641}
   - component: {fileID: 1402853643}
   m_Layer: 0
-  m_Name: Directional Light
+  m_Name: moon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
