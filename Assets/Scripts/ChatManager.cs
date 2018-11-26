@@ -6,6 +6,8 @@ public class ChatManager : MonoBehaviour {
     public int maxMessages = 25;
     public GameObject chatPanel, textObject;
     public InputField chatBox;
+    public Color playerMessage;
+    public Color otherMessage;
     [SerializeField]
     List<Message> messageList = new List<Message>();
 
@@ -15,7 +17,7 @@ public class ChatManager : MonoBehaviour {
         {
             if (Input.GetKeyDown(KeyCode.Return))
             {
-                SendMessageToChat(chatBox.text);
+                SendMessageToChat(chatBox.text, Message.MessageType.playerMessage);
                 chatBox.text = "";
                 Debug.Log("Fuck yeah!");
             }
@@ -31,7 +33,7 @@ public class ChatManager : MonoBehaviour {
        
 	}
 
-    public void SendMessageToChat(string text)
+    public void SendMessageToChat(string text, Message.MessageType messageType)
     {
 
         if(messageList.Count >= maxMessages)
@@ -44,8 +46,21 @@ public class ChatManager : MonoBehaviour {
         GameObject newText = Instantiate(textObject, chatPanel.transform);
         newMessage.textObject = newText.GetComponent<Text>();
         newMessage.textObject.text = newMessage.text;
+        //newMessage.textObject.color = MessageTypeColor(messageType);
         messageList.Add(newMessage);
         
+    }
+
+    Color MessageTypeColor(Message.MessageType messageType)
+    {
+        Color color = otherMessage;
+        switch (messageType)
+        {
+            case Message.MessageType.playerMessage:
+                color = playerMessage;
+                break;
+        }
+        return color;
     }
 }
 
@@ -54,4 +69,11 @@ public class Message
 {
     public string text;
     public Text textObject;
+
+    public MessageType messageType;
+    public enum MessageType
+    {
+        playerMessage,
+        otherMessage
+    }
 }
