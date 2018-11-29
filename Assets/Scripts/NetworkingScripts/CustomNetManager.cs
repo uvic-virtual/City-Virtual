@@ -5,28 +5,35 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.Networking.Match;
 using Assets.Scripts.NetworkingScripts;
+using System.IO;
 
 public class CustomNetManager : NetworkManager {
     private float nextRefreshTime;
 
     public void EnterCity()
     {
+        RefreshMatches();
 
+        /*
         if(matchMaker == null)
         {
             StartMatchMaker();
         }
 
-        matchMaker.ListMatches(0, 10, "", true, 0, 0, HandleListMatchesComplete);
-        int numMatches = AvailableMatchesList.matches.Count;
+        matchMaker.ListMatches(0, 10, "", true, 0, 0, HandleListMatchesComplete);*/
+
+        MatchInfoSnapshot[] matchArr = AvailableMatchesList.matches.ToArray();
+        int numMatches = matchArr.Length;
+
+        
+        
         if(numMatches == 0)
         {
             StartHosting();
         }
         else
         {
-            MatchInfoSnapshot[] matches = AvailableMatchesList.matches.ToArray();
-            JoinMatch(matches[0]);
+            JoinMatch(matchArr[matchArr.Length-1]);
         }
         
     }
@@ -54,12 +61,14 @@ public class CustomNetManager : NetworkManager {
         
     }
     
-
-    private void RefreshMatches()
+    
+    public void RefreshMatches()
     {
-        //nextRefreshTime = Time.time + 5f;
-        if(matchMaker == null)
+        nextRefreshTime = Time.time + 5f;
+        if (matchMaker == null)
+        {
             StartMatchMaker();
+        }
 
         matchMaker.ListMatches(0, 10, "", true, 0, 0, HandleListMatchesComplete);
     }

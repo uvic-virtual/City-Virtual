@@ -15,7 +15,7 @@ namespace Assets.Scripts.NetworkingScripts
         public static void HandleNewMatchList(List<MatchInfoSnapshot> matchList)
         {
             matches = matchList;
-            //OnAvailableMatchesChanged(matches);
+            OnAvailableMatchesChanged(matches);
         }
     }
 }
